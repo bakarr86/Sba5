@@ -18,6 +18,11 @@ app.use(express.json());
 // MongoDB Connection
 connectDB();
 
-// Routes
+// Routes importation
 const logsController = require('./controllers/logs');
 app.use('/logs', logsController);
+
+// Index Route Implementation
+app.get('/', (req, res) => {
+    res.send('Welcome to Captain\'s Log App!');
+  });
