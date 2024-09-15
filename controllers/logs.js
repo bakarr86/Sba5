@@ -17,3 +17,21 @@ router.get('/', async (req, res) => {
     router.get('/new', (req, res) => {
     res.render('New');
     });
+
+    // Create Route
+router.post('/', async (req, res) => {
+    try {
+      const {title,entry}=req.body;
+      const  newLog=new Log({
+        title,
+        entry,
+        shipIsBroken: req.body.shipIsBroken=="on",
+  
+      })  
+      const val= await newLog.save();
+      res.redirect('/logs');
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
