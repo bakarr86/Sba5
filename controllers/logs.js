@@ -45,3 +45,14 @@ router.get('/:id', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
+
+  // Delete Route
+router.get('/delete/:id', async (req, res) => {
+    try {
+      await Log.findByIdAndDelete(req.params.id);
+      res.redirect('/logs');
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
