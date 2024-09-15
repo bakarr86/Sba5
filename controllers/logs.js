@@ -56,3 +56,17 @@ router.get('/delete/:id', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
+
+  // edit route
+
+router.get('/edit/:id', async (req, res) => {
+    try {
+      const myId = req.params.id;
+      const myOutput = await Log.findById(myId);
+      res.render('update', { myOutput }); 
+  
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
