@@ -26,3 +26,8 @@ app.use('/logs', logsController);
 app.get('/', (req, res) => {
     res.send('Welcome to Captain\'s Log App!');
   });
+// server connection
+  const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
