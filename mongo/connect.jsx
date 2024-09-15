@@ -9,7 +9,7 @@ const connectDB= async=>{
 
   try {
     mongoose.connect(
-      "mongodb+srv://bakarr19861:1986@bakarr86.2hczz.mongodb.net/?retryWrites=true&w=majority&appName=bakarr86",
+      "mongodb+srv://bakarr19861:1986@bakarr86.2hczz.mongodb.net/bakarr86?retryWrites=true&w=majority&appName=bakarr86",
       { useNewUrlParser: true, useUnifiedTopology: true }
     )
 
