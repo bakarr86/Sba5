@@ -17,3 +17,7 @@ app.use(morgan('tiny'));
 app.use(express.json());
 // MongoDB Connection
 connectDB();
+
+// Routes
+const logsController = require('./controllers/logs');
+app.use('/logs', logsController);
