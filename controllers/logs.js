@@ -35,3 +35,13 @@ router.post('/', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
+  // Show Route
+router.get('/:id', async (req, res) => {
+    try {
+      const log = await Log.findById(req.params.id);
+      res.render('Show', { log });
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
