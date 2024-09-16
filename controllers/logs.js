@@ -70,3 +70,21 @@ router.get('/edit/:id', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
+ //update route 
+  router.post('/update/:id', async (req, res) => {
+    try {
+      const { title, entry, shipIsBroken } = req.body;
+      
+      // Convert "on" to true and an empty string to false
+  
+       await Log.findByIdAndUpdate(req.params.id, { title, entry, shipIsBroken:shipIsBroken === 'on'});
+      
+      res.redirect('/');
+    } catch (error) {
+      console.log(error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+  
+  
+  module.exports = router;
